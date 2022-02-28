@@ -2,8 +2,10 @@ import { createNetworkSagas, } from '@clearsummit/radio-dispatch'
 import { all, takeLatest, } from 'redux-saga/effects'
 
 import services from '@/helpers/services'
+import { ACTIONS as NOTIFICATION_ACTION, } from '@/redux/notification'
 import { ACTIONS as USER_ACTIONS, } from '@/redux/user'
 
+import * as notification from './notification'
 import * as user from './user'
 
 export { user, }
@@ -14,5 +16,6 @@ export default function* root(): GeneratorType {
     takeLatest(USER_ACTIONS.SET_USER_SESSION, user.setUserSession),
     takeLatest(USER_ACTIONS.CREATE_USER, user.setUserSession),
     takeLatest(USER_ACTIONS.LOGOUT, user.logout),
+    takeLatest(NOTIFICATION_ACTION.GET_NOTIFICATIONS, notification.getNotifications),
   ])
 }

@@ -11,6 +11,7 @@ import configureStore from '@/redux'
 import App from '@/screens'
 import Homepage from '@/screens/home'
 import Login from '@/screens/login'
+import NotificationsScreen from '@/screens/notifications'
 import SignUp from '@/screens/sign-up'
 
 // Normalize must load first or it will overwrite our styles
@@ -25,6 +26,7 @@ const routes = (
         <Route path={Routes.Login} exact component={Login} />
         <Route path={Routes.SignUp} exact component={SignUp} />
         <Route path={Routes.Home} component={Homepage} />
+        <Route path={Routes.Notifications} component={NotificationsScreen} />
       </App>
     </ConnectedRouter>
   </Provider>

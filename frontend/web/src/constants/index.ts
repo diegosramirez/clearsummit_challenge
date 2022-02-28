@@ -8,12 +8,13 @@ export const Routes = {
   Login: '/',
   Home: '/home',
   SignUp: '/signup',
+  Notifications: '/notifications',
 }
 
 export const Images = {
-  logo:  STORYBOOK
-  ? require('../../../../backend/challenge/static/images/logo.png')
-  : staticPath('/images/logo.png'),
+  logo: STORYBOOK
+    ? require('../../../../backend/challenge/static/images/logo.png')
+    : staticPath('/images/logo.png'),
   searchIcon: STORYBOOK
     ? require('../../../../backend/challenge/static/images/search.png')
     : staticPath('/images/search.png'),

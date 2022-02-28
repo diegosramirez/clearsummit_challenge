@@ -11,6 +11,10 @@ export interface LoginPayload {
   email: string,
 }
 
+export interface GetNotificationsPayload {
+  id: string,
+}
+
 export interface SignUpPayload {
   username: string
   password: string
@@ -19,8 +23,12 @@ export interface SignUpPayload {
   last_name: string
 }
 
+export interface GetNotificationsResponse {
+  data?: { notifications: Notification[] }
+}
+
 export interface SignUpResponse {
-  data?: { user: User}
+  data?: { user: User }
   details?: string
   statusCode: number,
 }
@@ -38,5 +46,11 @@ export const signUpPayload = (
   serviceKey: endpoints.signup,
   successActionCreator: AC.user.signUpSuccess.dispatch,
   errorActionCreator: AC.user.signUpFailure.dispatch,
+  data,
+})
+
+export const notificationsPayload = (data: GetNotificationsPayload): ApiPayload<typeof services, GetNotificationsPayload> => ({
+  serviceKey: endpoints.login,
+  successActionCreator: AC.notification.getNotifications.dispatch,
   data,
 })
